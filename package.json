@@ -1,0 +1,11 @@
+{
+  "name": "valemobitest",
+  "version": "1.0.0",
+  "description": "Aplicação web desenvolvida para o processo seletivo da Valemobi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ViniciusPuente",
+  "license": "ISC"
+}
