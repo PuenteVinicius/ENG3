@@ -1,0 +1,21 @@
+{
+  "name": "valemobitest",
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Aplicação web desenvolvida para o processo seletivo da Valemobi",
+  "authors": [
+    "ViniciusPuente"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.3"
+  }
+}
