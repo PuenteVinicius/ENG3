@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  <h1 class="text-center">
+    Bem-vindo ao JComerce
+  </h1>
+</div>
+<button class="btn btn-primary" ng-click="incrementa()">
+  Novo
+</button>
+<p>mercadorias cadastradas: {{total}}</p>
+<input type="search" placeholder="parte do nome" ng-model="filtro">
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th>NOME</th>
+      <th>PRECO</th>
+      <th>QUANTIDADE</th>
+      <th>TIPO DE MERCADORIA</th>
+      <th>TIPO DO NEGOCIO</th>
+      <th class="text-center">Ação</th>
+    </tr>
+  	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
+  		<td><a>{{mercadoria.nome}}</a></td>
+  		<td>{{mercadoria.preco}}</td>
+      <td>{{mercadoria.qtd}}</td>
+      <td>{{mercadoria.TipoMercadoria}}</td>
+      <td>{{mercadoria.TipoNegocio}}</td>
+  		<td class="text-center">
+  			<button class="btn btn-warning">
+  				Remover
+  			</buttom>
+  		</td>
+  	</tr>
+  </table>
+</div>
