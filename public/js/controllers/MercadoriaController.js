@@ -1,6 +1,32 @@
-angular.module('JComerce').controller('ContatoMercadoria',
-	function($scope, $routeParams) {
+angular.module('JComerce').controller('MercadoriaController',
+    function($scope, Mercadoria, $routeParams) {
 
-		console.log($routeParams.mercadoriaId);
+    	if ($routeParams.mercadoriaId) {
+      	Mercadoria.get({id: $routeParams.mercadoriaId},
+        	function(mercadoria) {
+          	$scope.mercadoria = mercadoria;
+          },
+          function(erro) {
+            $scope.mensagem = {
+              texto: 'Mercadoria não existe. Nova mercadoria.'
+            };
+          }
+      	);
+      } else {
+				$scope.mercadoria = new Mercadoria();
+			}
 
+
+
+			$scope.salva = function(){
+				$scope.mercadoria.$save()
+					.then(function() {
+						$scope.mensagem = {texto: 'Salvo com sucesso'};
+
+						$scope.mercadoria = new Mercadoria();
+					})
+					.catch(function(erro){
+						scope.mensagem = {texto: 'Não foi possivel salvar'};
+				});
+		};
 });
