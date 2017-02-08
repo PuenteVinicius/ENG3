@@ -21,6 +21,7 @@ angular.module('JComerce').controller('MercadoriasController',
       );
     }
     buscaMercadorias();
+    
     $scope.remove = function(mercadoria) {
       Mercadoria.delete({id: mercadoria._id},
         buscaMercadorias,

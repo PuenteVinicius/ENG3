@@ -9,19 +9,19 @@ var mercadorias = [
     TipoNegocio: 'Venda'
   },
   { _id: 2,
-    nome: 'Livro 4',
+    nome: 'Livro 2',
     preco: 47.00,
     qtd: 20,
     TipoMercadoria: 'Livro',
     TipoNegocio: 'Venda'
   },
-  { _id: 1,
+  { _id: 3,
     nome: 'Livro 3',
     preco: 65.00,
     qtd: 32,
     TipoMercadoria: 'Livro',
     TipoNegocio: 'Venda'
-  },
+  }
 ];
 
 
@@ -57,11 +57,11 @@ module.exports = function() {
     var mercadoria = req.body;
     mercadoria = mercadoria._id;
       atualiza(mercadoria);
-      adicionar(mercadoria);
+      adiciona(mercadoria);
     res.json(mercadoria);
   };
 
-  function adiciona (mercadoriaNova){
+  function adiciona(mercadoriaNova){
 
     mercadoriaNova._id = ++ID_MERCADORIA_INC;;
     mercadorias.push(mercadoriaNova);
