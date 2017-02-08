@@ -11,5 +11,10 @@ angular.module('JComerce',['ngRoute', 'ngResource'])
     	controller: 'MercadoriaController'
     });
 
+    $routeProvider.when('/mercadoria',{
+      templateUrl: 'partials/mercadoria.html',
+      controller:'MercadoriaController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/mercadorias'});
 });
