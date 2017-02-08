@@ -1,34 +1,35 @@
 angular.module('JComerce').controller('MercadoriasController',
-    function($resource, $scope) {
+  function(Mercadoria, $scope) {
+    $scope.mercadorias = [];
 
-        $scope.mercadorias = [];
+    $scope.filtro = '';
 
-        $scope.filtro = '';
+    $scope.mensagem = {texto: ''};
 
-        var Mercadoria = $resource('/mercadorias/id:');
-
-        function buscaMercadorias() {
-            Mercadoria.query(
-                function(mercadorias) {
-                    $scope.mercadorias = mercadorias;
-                },
-                function(erro) {
-                    console.log("Não foi possível ober a lista de mercadorias");
-                    console.log(erro);
-                }
-            );
+    function buscaMercadorias() {
+      Mercadoria.query(
+        function(mercadorias) {
+          $scope.mercadorias = mercadorias;
+          $scope.mensagem = {};
+        },
+        function(erro) {
+          console.log(erro);
+          $scope.mensagem = {
+            texto: 'Não foi possível obter a lista'
+          };
         }
-        buscaMercadorias();
-
-        $scope.remove = function(mercadoria) {
-            Mercadoria.delete({
-                    id: mercadoria._id
-                },
-                buscaMercadorias,
-                function(erro) {
-                    console.log('Não foi possível remover o contato');
-                    console.log(erro);
-                }
-            );
-        };
-    });
+      );
+    }
+    buscaMercadorias();
+    $scope.remove = function(mercadoria) {
+      Mercadoria.delete({id: mercadoria._id},
+        buscaMercadorias,
+        function(erro) {
+          $scope.mensagem ={
+            texto: 'Não foi possível remover o contato'
+          };
+          console.log(erro);
+        }
+      );
+    };
+});
