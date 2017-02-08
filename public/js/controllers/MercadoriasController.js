@@ -1,36 +1,34 @@
-angular.module('JComerce').controller('MercadoriasController', function($scope) {
+angular.module('JComerce').controller('MercadoriasController',
+    function($resource, $scope) {
 
-    $scope.total = 0;
+        $scope.mercadorias = [];
 
-    $scope.incrementa = function() {
-      $scope.total++;
-    };
+        $scope.filtro = '';
 
-    $scope.mercadorias  = [
-      {
-        "_id": 1,
-        "nome": "Livro - As Crônicas de Gelo e Fogo: A Guerra dos Tronos - Livro Um",
-        "preco": 65.00,
-        "qtd": 40,
-        "TipoMercadoria": "Livro",
-        "TipoNegocio": "Venda"
-      },
-      {
-        "_id": 2,
-        "nome": "Notebook Dell Inspiron",
-        "preco": 2180.99,
-        "qtd": 12,
-        "TipoMercadoria": "Eletrônico",
-        "TipoNegocio": "Compra"
-      },
-      {
-        "_id": 3,
-        "nome": "Headset Razer Kraken 7.1 PC",
-        "preco": 408.49,
-        "qtd": 4,
-        "TipoMercadoria": "Eletrônico",
-        "TipoNegocio": "Compra"
-      }
-    ];
-    $scope.filtro = '';
-});
+        var Mercadoria = $resource('/mercadorias/id:');
+
+        function buscaMercadorias() {
+            Mercadoria.query(
+                function(mercadorias) {
+                    $scope.mercadorias = mercadorias;
+                },
+                function(erro) {
+                    console.log("Não foi possível ober a lista de mercadorias");
+                    console.log(erro);
+                }
+            );
+        }
+        buscaMercadorias();
+
+        $scope.remove = function(mercadoria) {
+            Mercadoria.delete({
+                    id: mercadoria._id
+                },
+                buscaMercadorias,
+                function(erro) {
+                    console.log('Não foi possível remover o contato');
+                    console.log(erro);
+                }
+            );
+        };
+    });

@@ -1,4 +1,4 @@
-angular.module('JComerce', ['ngRoute'])
+angular.module('JComerce',['ngRoute', 'ngResource'])
   .config(function($routeProvider) {
 
     $routeProvider.when('/mercadorias', {
@@ -6,7 +6,7 @@ angular.module('JComerce', ['ngRoute'])
       controller: 'MercadoriasController'
     });
 
-    $routeProvider.when('/meradoria/:mercadoriaId', {
+    $routeProvider.when('/mercadoria/:mercadoriaId', {
     	templateUrl: 'partials/mercadoria.html',
     	controller: 'MercadoriaController'
     });
