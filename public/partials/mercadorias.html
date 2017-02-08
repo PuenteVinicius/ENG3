@@ -3,14 +3,22 @@
     Bem-vindo ao JComerce
   </h1>
 </div>
-<button class="btn btn-primary" ng-click="incrementa()">
-  Novo
-</button>
-<p>mercadorias cadastradas: {{mercadorias.length}}</p>
-<p class="text-info" ng-hide="contatos.length">
-Não há contatos cadastrados
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
 </p>
+
+<a ng-href="#/mercadoria" class="btn btn-primary">Nova Mercadoria</a>
+
+<p ng-show="mercadorias.length">
+  Mercadorias cadastradas: {{mercadorias.length}}
+</p>
+
+<p class="text-info" ng-hide="mercadorias.length">
+    Não há mercadorias cadastrados
+</p>
+
 <input type="search" placeholder="parte do nome" ng-model="filtro">
+
 <div class="table-responsive">
   <table class="table table-hover">
     <tr>
@@ -22,7 +30,9 @@ Não há contatos cadastrados
       <th class="text-center">Ação</th>
     </tr>
   	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
-  		<td><a>{{mercadoria.nome}}</a></td>
+  		<td>
+        <a ng-href="#/contato/{{mercadoria._id}}">{{mercadoria.nome}}</a>
+      </td>
   		<td>{{mercadoria.preco}}</td>
       <td>{{mercadoria.qtd}}</td>
       <td>{{mercadoria.TipoMercadoria}}</td>
