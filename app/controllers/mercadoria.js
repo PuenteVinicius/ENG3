@@ -1,83 +1,82 @@
-var ID_MERCADORIA_INC = 3;
-
-var mercadorias = [
-  { _id: 1,
-    nome: 'Livro 1',
-    preco: 45.00,
-    qtd: 4,
-    TipoMercadoria: 'Livro',
-    TipoNegocio: 'Venda'
-  },
-  { _id: 2,
-    nome: 'Livro 2',
-    preco: 47.00,
-    qtd: 20,
-    TipoMercadoria: 'Livro',
-    TipoNegocio: 'Venda'
-  },
-  { _id: 3,
-    nome: 'Livro 3',
-    preco: 65.00,
-    qtd: 32,
-    TipoMercadoria: 'Livro',
-    TipoNegocio: 'Venda'
-  }
-];
-
-
 module.exports = function() {
+
+  var Mercadoria = app.models.mercadoria;
+
   var controller = {};
 
   controller.listaMercadorias = function(req, res) {
-      res.json(mercadorias);
+
+    Mercadoria.find().populate('emergencia').exec()
+    .then(
+      function(mercadorias){
+        res.json(mercadorias);
+      },
+      function(erro){
+        console.error(erro)
+        res.status(500).json(erro);
+      }
+    );
   };
 
   controller.obtemMercadoria = function(req, res) {
 
-  	var idMercadoria = req.params.id;
-  	var mercadoria = mercadorias.filter(function(mercadoria) {
-  		return mercadoria._id == idMercadoria;
-  	})[0];
-  	mercadoria ?
-  	res.json(mercadoria) :
-    res.status(404).send('Mercadoria não encontrada');
-  };
-
-  controller.removeMercadoria = function(req, res){
-
-    var idMercadoria = req.params.id;
-    mercadorias = mercadorias.filter(function(mercadoria){
-      return mercadoria._id != idMercadoria;
-    });
-    res.status(204).end();
-  };
-
-  controller.salvarMercadoria = function(req, res){
-
-    var mercadoria = req.body;
-    mercadoria = mercadoria._id;
-      atualiza(mercadoria);
-      adiciona(mercadoria);
-    res.json(mercadoria);
-  };
-
-  function adiciona(mercadoriaNova){
-
-    mercadoriaNova._id = ++ID_MERCADORIA_INC;;
-    mercadorias.push(mercadoriaNova);
-    return mercadoriaNova;
-  }
-
-  function atualiza(mercadoriaAlterar){
-
-    mercadorias = mercadorias.map(function(mercadoria){
-      if(mercadoria._id == mercadoriaAlterar._id){
-        mercadoria = mercadoriaAlterar;
+    var _id = req.params.id;
+    Mercadoria.findById(_id).exec()
+    .then(
+      function(mercadoria){
+        if(!mercadoria) throw new Error("Mercadoria não encontrada")
+        res.json(,mercadoria)
+      },
+      function(erro){
+        console.log(erro);
+        res.status(404).json(erro);
       }
-      return mercadoria;
-    });
-    return mercadoriaAlterar;
-  }
+    );
+  };
+
+  controller.removeMercadoria = function(req, res) {
+
+    var _id = req.params.id;
+    Mercadoria.remove({"_id" : _id}).exec()
+    .then(
+      function(){
+        res.end();
+      }
+      function(erro){
+        return console.erro(erro);
+      }
+    );
+  };
+
+  controller.salvaMercadoria = function(req, res) {
+
+    var _id = req.body._id;
+    req.body.emergencia = req.body.emergencia || null;
+
+      if(_id) {
+        Contato.findByIdAndUpdate(_id, req.body).exec()
+        .then(
+        function(mercadoria) {
+          res.json(mercadoria);
+        },
+        function(erro) {
+          console.error(erro)
+          res.status(500).json(erro);
+        }
+       );
+      } else {
+        Contato.create(req.body)
+        .then(
+          function(mercadoria) {
+            res.status(201).json(contato);
+          },
+          function(erro) {
+            console.log(erro);
+            res.status(500).json(erro);
+          }
+        );
+      }
+  };
 
   return controller;
 };
