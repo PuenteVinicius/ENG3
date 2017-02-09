@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(app) {
 
   var Mercadoria = app.models.mercadoria;
 
@@ -25,7 +25,7 @@ module.exports = function() {
     .then(
       function(mercadoria){
         if(!mercadoria) throw new Error("Mercadoria não encontrada")
-        res.json(,mercadoria)
+        res.json(mercadoria)
       },
       function(erro){
         console.log(erro);
@@ -41,7 +41,7 @@ module.exports = function() {
     .then(
       function(){
         res.end();
-      }
+      },
       function(erro){
         return console.erro(erro);
       }
