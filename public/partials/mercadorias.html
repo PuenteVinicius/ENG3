@@ -32,7 +32,7 @@
     </tr>
   	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
   		<td>
-        <a ng-href="#/contato/{{mercadoria._id}}">{{mercadoria.nome}}</a>
+        <a ng-href="#/mercadoria/{{mercadoria._id}}">{{mercadoria.nome}}</a>
       </td>
   		<td>{{mercadoria.preco}}</td>
       <td>{{mercadoria.qtd}}</td>
