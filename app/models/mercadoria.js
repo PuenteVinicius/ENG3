@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 module.exports = function() {
-
     var schema = mongoose.Schema({
         nome: {
             type: String,
@@ -25,7 +24,7 @@ module.exports = function() {
         },
         emergencia: {
             type: mongoose.Schema.ObjectId,
-            ref: 'Mercadoria' 
+            ref: 'Mercadoria'
         }
     });
     return mongoose.model('Mercadoria', schema);

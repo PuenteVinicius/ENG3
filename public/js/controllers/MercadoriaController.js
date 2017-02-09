@@ -16,8 +16,6 @@ angular.module('JComerce').controller('MercadoriaController',
 				$scope.mercadoria = new Mercadoria();
 			}
 
-
-
 			$scope.salva = function(){
 				$scope.mercadoria.$save()
 					.then(function() {
@@ -29,4 +27,8 @@ angular.module('JComerce').controller('MercadoriaController',
 						scope.mensagem = {texto: 'Não foi possivel salvar'};
 				});
 		};
+
+    Mercadoria.query(function(mercadorias){
+      $scope.mercadorias = mercadorias;
+    });
 });
