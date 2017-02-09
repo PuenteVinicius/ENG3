@@ -54,7 +54,7 @@ module.exports = function(app) {
     req.body.emergencia = req.body.emergencia || null;
 
       if(_id) {
-        Contato.findByIdAndUpdate(_id, req.body).exec()
+        Mercadoria.findByIdAndUpdate(_id, req.body).exec()
         .then(
         function(mercadoria) {
           res.json(mercadoria);
@@ -65,10 +65,10 @@ module.exports = function(app) {
         }
        );
       } else {
-        Contato.create(req.body)
+        Mercadoria.create(req.body)
         .then(
           function(mercadoria) {
-            res.status(201).json(contato);
+            res.status(201).json(mercadoria);
           },
           function(erro) {
             console.log(erro);

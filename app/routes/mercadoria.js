@@ -4,7 +4,7 @@ module.exports = function(app) {
 
     app.route('/mercadorias')
         .get(controller.listaMercadorias)
-        .post(controller.salvarMercadoria)
+        .post(controller.salvaMercadoria)
 
     app.route('/mercadorias/:id')
         .get(controller.obtemMercadoria)
