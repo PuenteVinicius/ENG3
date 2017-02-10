@@ -4,10 +4,7 @@ module.exports = function() {
     var schema = mongoose.Schema({
         nome: {
             type: String,
-            required:true,
-            index:{
-              unique: true
-            }
+            required:true
         },
         preco: {
             type: String,

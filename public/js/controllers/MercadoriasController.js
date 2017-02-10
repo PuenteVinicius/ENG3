@@ -9,9 +9,6 @@ angular.module('JComerce').controller('MercadoriasController',
 
     $scope.mensagem = {texto: ''};
 
-    function buscaMercadoria(){
-      
-    }
 
     function buscaMercadorias() {
       Mercadoria.query(
