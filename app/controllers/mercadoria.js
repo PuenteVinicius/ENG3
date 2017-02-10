@@ -18,6 +18,18 @@ module.exports = function(app) {
     };
 
     controller.obtemMercadoria = function(req, res) {
+      var _id = req.params.id;
+      Mercadoria.findById(_id).exec()
+      .then(
+        function(mercadoria){
+          if(!mercadoria) throw new Error("Mercadoria não encontrado");
+          res.json(mercadoria)
+        },
+        function(erro){
+          console.log(erro);
+          res.status(404).json(erro);
+        }
+      );
     };
 
     controller.removeMercadoria = function(req, res) {

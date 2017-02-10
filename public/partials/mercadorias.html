@@ -31,13 +31,12 @@
     </tr>
   	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
   		<td>
-        <a ng-href="#/mercadoria/{{mercadoria._id}}">{{mercadoria.nome}}</a>
+        <p>{{mercadoria.nome}}</p>
       </td>
   		<td>{{mercadoria.preco}}</td>
       <td>{{mercadoria.qtd}}</td>
       <td>{{mercadoria.TipoMercadoria}}</td>
       <td>{{mercadoria.TipoNegocio}}</td>
-      <td>{{mercadoria.nome}}</td>
   		<td class="text-center">
   			<button
         ng-click = "remove(mercadoria)"
@@ -46,11 +45,9 @@
   			</buttom>
   		</td>
       <td>
-        <button
-        ng-click = "altera(mercadoria)"
-        class="btn btn-warning">
+        <a class ="btn btn-warning" ng-href="#/mercadoria/{{mercadoria._id}}">
           Edit
-        </buttom>
+        </a>
       </td>
   	</tr>
   </table>
