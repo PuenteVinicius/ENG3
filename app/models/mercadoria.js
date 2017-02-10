@@ -11,7 +11,7 @@ module.exports = function() {
             required:true
         },
         qtd: {
-            type: String,
+            type: Number,
             required:true
         },
         TipoMercadoria: {

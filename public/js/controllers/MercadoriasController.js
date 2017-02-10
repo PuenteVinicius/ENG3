@@ -37,7 +37,4 @@ angular.module('JComerce').controller('MercadoriasController',
         }
       );
     };
-    $scope.altera = function(mercadoria){
-      $scope.show = true;
-    };
 });
