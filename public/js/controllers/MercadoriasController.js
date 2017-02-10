@@ -1,10 +1,17 @@
 angular.module('JComerce').controller('MercadoriasController',
   function(Mercadoria, $scope) {
+
+    $scope.show = false;
+
     $scope.mercadorias = [];
 
     $scope.filtro = '';
 
     $scope.mensagem = {texto: ''};
+
+    function buscaMercadoria(){
+      
+    }
 
     function buscaMercadorias() {
       Mercadoria.query(
@@ -21,7 +28,7 @@ angular.module('JComerce').controller('MercadoriasController',
       );
     }
     buscaMercadorias();
-    
+
     $scope.remove = function(mercadoria) {
       Mercadoria.delete({id: mercadoria._id},
         buscaMercadorias,
@@ -32,5 +39,8 @@ angular.module('JComerce').controller('MercadoriasController',
           console.log(erro);
         }
       );
+    };
+    $scope.altera = function(mercadoria){
+      $scope.show = true;
     };
 });

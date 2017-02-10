@@ -9,4 +9,5 @@ module.exports = function(app) {
     app.route('/mercadorias/:id')
         .get(controller.obtemMercadoria)
         .delete(controller.removeMercadoria);
+
 };

@@ -4,7 +4,10 @@ module.exports = function() {
     var schema = mongoose.Schema({
         nome: {
             type: String,
-            required:true
+            required:true,
+            index:{
+              unique: true
+            }
         },
         preco: {
             type: String,
@@ -21,10 +24,6 @@ module.exports = function() {
         TipoNegocio: {
             type: String,
             required:true
-        },
-        emergencia: {
-            type: mongoose.Schema.ObjectId,
-            ref: 'Mercadoria'
         }
     });
     return mongoose.model('Mercadoria', schema);

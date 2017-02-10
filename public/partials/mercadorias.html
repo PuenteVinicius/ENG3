@@ -27,7 +27,6 @@
       <th>QUANTIDADE</th>
       <th>TIPO DE MERCADORIA</th>
       <th>TIPO DO NEGOCIO</th>
-      <th>EMERGÊNCIA</th>
       <th class="text-center">Ação</th>
     </tr>
   	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
@@ -38,7 +37,7 @@
       <td>{{mercadoria.qtd}}</td>
       <td>{{mercadoria.TipoMercadoria}}</td>
       <td>{{mercadoria.TipoNegocio}}</td>
-      <td>{{mercadoria.emergencia.nome}}</td>
+      <td>{{mercadoria.nome}}</td>
   		<td class="text-center">
   			<button
         ng-click = "remove(mercadoria)"
@@ -46,6 +45,21 @@
   				Remover
   			</buttom>
   		</td>
+      <td>
+        <button
+        ng-click = "altera(mercadoria)"
+        class="btn btn-warning">
+          Edit
+        </buttom>
+      </td>
   	</tr>
   </table>
+  <div class = "edit-form" ng-show = "show">
+    <form ng-submit="salva()"
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome"
+        name="nome"  required ng-model="mercadoria.nome">
+      </div>
+    </form>
 </div>
