@@ -1,8 +1,8 @@
 {
-  "name": "valemobitest",
+  "name": "simpleCRUD",
   "main": "index.js",
   "version": "0.0.0",
-  "description": "Aplicação web desenvolvida para o processo seletivo da Valemobi",
+  "description": "Aplicação web que realiza um CRUD",
   "authors": [
     "ViniciusPuente"
   ],

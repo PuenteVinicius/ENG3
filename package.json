@@ -1,7 +1,7 @@
 {
-  "name": "valemobitest",
+  "name": "simpleCRUD",
   "version": "1.0.0",
-  "description": "Aplicação web desenvolvida para o processo seletivo da Valemobi",
+  "description": "Aplicação web que realiza um CRUD",
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js"
