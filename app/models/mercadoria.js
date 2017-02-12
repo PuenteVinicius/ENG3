@@ -1,13 +1,15 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+require('mongoose-double')(mongoose);
 
 module.exports = function() {
-    var schema = mongoose.Schema({
+  var SchemaTypes = mongoose.Schema.Types;
+    var mercadoria = mongoose.Schema({
         nome: {
             type: String,
             required:true
         },
         preco: {
-            type: String,
+            type: SchemaTypes.Double,
             required:true
         },
         qtd: {
@@ -23,5 +25,5 @@ module.exports = function() {
             required:true
         }
     });
-    return mongoose.model('Mercadoria', schema);
+    return mongoose.model('Mercadoria', mercadoria);
 };
