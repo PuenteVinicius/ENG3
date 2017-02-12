@@ -27,7 +27,8 @@
       <th>QUANTIDADE</th>
       <th>TIPO DE MERCADORIA</th>
       <th>TIPO DO NEGOCIO</th>
-      <th class="text-center">Ação</th>
+      <th class="text-center">Remover</th>
+      <th class="text-center">Editar</th>
     </tr>
   	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
   		<td>
@@ -44,7 +45,7 @@
   				Remover
   			</buttom>
   		</td>
-      <td>
+      <td class ="text-center">
         <a class ="btn btn-warning" ng-href="#/mercadoria/{{mercadoria._id}}">
           Edit
         </a>
