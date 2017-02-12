@@ -31,7 +31,7 @@ angular.module('JComerce').controller('MercadoriasController',
         buscaMercadorias,
         function(erro) {
           $scope.mensagem ={
-            texto: 'Não foi possível remover o contato'
+            texto: 'Não foi possível remover a mercadoria'
           };
           console.log(erro);
         }
