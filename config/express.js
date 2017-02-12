@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 module.exports = function() {
   var app = express();
 
-  app.set('port', 3000);
+  app.set(process.env.PORT || 5000);
 
   app.use(express.static('./public'));
   app.set('view engine', 'ejs');
