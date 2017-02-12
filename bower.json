@@ -1,5 +1,5 @@
 {
-  "name": "simpleCRUD",
+  "name": "VmbTest",
   "main": "index.js",
   "version": "0.0.0",
   "description": "Aplicação web que realiza um CRUD",
