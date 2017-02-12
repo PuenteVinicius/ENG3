@@ -29,8 +29,10 @@
 
   <div class="form-group">
     <label for="TipoNegocio">Tipo de Negocio</label>
-    <input type="text" class="form-control" id="TipoNegocio"
-    name="TipoNegocio" required ng-model="mercadoria.TipoNegocio">
+    <select class="form-control" name="TipoNegocio" ng-model="mercadoria.TipoNegocio">
+      <option value="Compra">Compra</option>
+      <option value="Venda">Venda</option>
+  </select>
   </div>
 
 

@@ -4,6 +4,7 @@ angular.module('JComerce').controller('MercadoriaController',
     	if ($routeParams.mercadoriaId) {
       	Mercadoria.get({id: $routeParams.mercadoriaId},
         	function(mercadoria) {
+            
           	$scope.mercadoria = mercadoria;
           },
           function(erro) {
