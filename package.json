@@ -4,7 +4,8 @@
   "description": "Aplicação web que realiza um CRUD",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "babel-node index.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "ViniciusPuente",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "mongodb": "^1.4.40",
     "mongoose": "~4.4",
     "mongoose-double": "0.0.1",
+    "bower": "0.6.x",
     "npm": "^4.2.0"
   }
 }
