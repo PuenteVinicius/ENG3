@@ -10,12 +10,12 @@ You need to have installed Node.js
 
 To install dependencies enter project folder and run following commands:
 
-    * npm install
-    
-    * bower install
+     npm install
+
+     bower install
 
 # Run server
 
-    * npm start
+     npm start
 
   See what happens at http://localhost:3000/
