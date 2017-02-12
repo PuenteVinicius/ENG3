@@ -1,55 +1,27 @@
-<div class="jumbotron">
-  <h1 class="text-center">
-    Bem-vindo ao JComerc
-  </h1>
-</div>
-<p ng-show="mensagem.texto">
-    {{mensagem.texto}}
-</p>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Bem vindo ao JComerce</h2>
+  </div>
+</md-toolbar>
 
-<a ng-href="#/mercadoria" class="btn btn-primary">Nova Mercadoria</a>
+<md-content class="full-heigth" layout-padding>
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat="mercadoria in mercadorias | filter: filtro">
+      <div class="md-list-item-text">
+        <h2>{{mercadoria.nome}}</h2>
+        <h3>Preço: {{mercadoria.preco}}$</h3>
+        <p>Quantidade: {{mercadoria.qtd}}</p>
+        <p>Tipo de Mercadoria: {{mercadoria.TipoMercadoria}}</p>
+        <p>Tipo de Negócio: {{mercadoria.TipoNegocio}}</p>
+        <br></br>
+      </div>
+      <md-button layout-padding ng-href="#/mercadoria/{{mercadoria._id}}" class="md-raised">Editar</md-button>
+      <md-button ng-click = "remove(mercadoria)" class="md-raised md-warn">Remover</md-button>
 
-<p ng-show="mercadorias.length">
-  Mercadorias cadastradas: {{mercadorias.length}}
-</p>
-
-<p class="text-info" ng-hide="mercadorias.length">
-    Não há mercadorias cadastradas
-</p>
-
-<input type="search" placeholder="pesquisa" ng-model="filtro">
-<br></br>
-
-<div class="table-responsive">
-  <table class="table table-hover">
-    <tr>
-      <th>NOME</th>
-      <th>PREÇO</th>
-      <th>QUANTIDADE</th>
-      <th>TIPO DE MERCADORIA</th>
-      <th>TIPO DO NEGOCIO</th>
-      <th class="text-center">Remover</th>
-      <th class="text-center">Editar</th>
-    </tr>
-  	<tr ng-repeat="mercadoria in mercadorias | filter: filtro">
-  		<td>
-        <p>{{mercadoria.nome}}</p>
-      </td>
-  		<td>{{mercadoria.preco}}</td>
-      <td>{{mercadoria.qtd}}</td>
-      <td>{{mercadoria.TipoMercadoria}}</td>
-      <td>{{mercadoria.TipoNegocio}}</td>
-  		<td class="text-center">
-  			<button
-        ng-click = "remove(mercadoria)"
-        class="btn btn-warning">
-  				Remover
-  			</buttom>
-  		</td>
-      <td class ="text-center">
-        <a class ="btn btn-warning" ng-href="#/mercadoria/{{mercadoria._id}}">
-          Edit
-        </a>
-      </td>
-  	</tr>
-  </table>
+      <md-divider layout="row" layout-margin class ="divider"></md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>
+<md-button ng-href="#/mercadoria" class="md-fab md-fab-bottom-right" aria-label="Novo">
+        +
+</md-button>

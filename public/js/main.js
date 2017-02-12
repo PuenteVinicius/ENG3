@@ -1,4 +1,4 @@
-angular.module('JComerce',['ngRoute', 'ngResource'])
+angular.module('JComerce',['ngRoute', 'ngResource',  'ngMaterial'])
   .config(function($routeProvider) {
 
     $routeProvider.when('/mercadorias', {

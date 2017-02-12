@@ -1,4 +1,5 @@
 angular.module('JComerce').controller('MercadoriasController',
+
   function(Mercadoria, $scope) {
 
     $scope.show = false;
@@ -8,6 +9,8 @@ angular.module('JComerce').controller('MercadoriasController',
     $scope.filtro = '';
 
     $scope.mensagem = {texto: ''};
+
+    $scope.title = 'My App Title';
 
     function buscaMercadorias() {
       Mercadoria.query(
@@ -23,7 +26,7 @@ angular.module('JComerce').controller('MercadoriasController',
         }
       );
     }
-    
+
     buscaMercadorias();
 
     $scope.remove = function(mercadoria) {
@@ -37,4 +40,5 @@ angular.module('JComerce').controller('MercadoriasController',
         }
       );
     };
+    angular.module('App', ['ngMaterial']);
 });

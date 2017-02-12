@@ -1,0 +1,10 @@
+.title{
+  background: #1976D2;
+  color: white;
+}
+.full-heigth {
+    height: -moz-calc(100% - 64px);
+    height: -webkit-calc(100% - 64px);
+    height: calc(100% - 64px);
+
+}
