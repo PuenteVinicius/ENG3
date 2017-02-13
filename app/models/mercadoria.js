@@ -1,8 +1,6 @@
-var mongoose = require('mongoose')
-require('mongoose-double')(mongoose);
+var mongoose = require('mongoose');
 
 module.exports = function() {
-  var SchemaTypes = mongoose.Schema.Types;
     var mercadoria = mongoose.Schema({
         nome: {
             type: String,
