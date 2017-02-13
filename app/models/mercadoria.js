@@ -9,7 +9,7 @@ module.exports = function() {
             required:true
         },
         preco: {
-            type: SchemaTypes.Double,
+            type: String,
             required:true
         },
         qtd: {
