@@ -1,45 +1,41 @@
-<h1>Mercadoria</h1>
-<p ng-show="mensagem.texto">
-    {{mensagem.texto}}
-</p>
-<form ng-submit="salva()"
-  <div class="form-group">
-    <label for="nome">Nome</label>
-    <input type="text" id="nome"
-    name="nome" required ng-model="mercadoria.nome">
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Cadastre a sua Mercadoria</h2>
   </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+      <form name="MercadoriaForm" ng-submit="salva()">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nome</label>
+            <input id ="nome" required ng-model="mercadoria.nome">
+          </md-input-container>
 
-  <div>
-    <label for="prec0">Preço</label>
-    <input type="text" id="preco"
-    name="preco" required ng-model="mercadoria.preco">
-  </div>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Preço</label>
+            <input id ="preco" required ng-model="mercadoria.preco">
+          </md-input-container>
+        </div>
 
-  <div>
-    <label for="qtd">Quantidade</label>
-    <input type="text" id="qtd"
-    name="qtd" required ng-model="mercadoria.qtd">
-  </div>
+        <md-input-container class="md-block">
+          <label>Quantidade</label>
+          <input id ="qtd" required ng-model="mercadoria.qtd">
+        </md-input-container>
 
-  <div >
-    <label for="TipoMercadoria">Tipo de Mercadoria</label>
-    <input type="text"  id="TipoMercadoria"
-    name="TipoMercadoria" required ng-model="mercadoria.TipoMercadoria">
-  </div>
+        <md-input-container md-no-float class="md-block">
+          <label>Tipo de Mercadoria</label>
+          <input id ="TipoMercadoia" required ng-model="mercadoria.TipoMercadoria">
+        </md-input-container>
 
-  <div >
-    <label for="TipoNegocio">Tipo de Negocio</label>
-    <select  name="TipoNegocio" ng-model="mercadoria.TipoNegocio">
-      <option value="Compra">Compra</option>
-      <option value="Venda">Venda</option>
-  </select>
-  </div>
-
-
-    <button type="submit">
-    Salvar
-    </button>
-    <a href="#/">Voltar</a>
-  </div>
-
-</form>
+        <span>Tipo de Negócio</span>
+          <md-select ng-model="mercadoria.TipoNegocio" placeholder="Negócio" class="md-no-underline">
+            <md-option value="Venda">Venda</md-option>
+            <md-option value="Compra">Compra</md-option>
+          </md-select>
+          <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button type="submit" class="md-raised">Salvar</md-button>
+            <md-button href="#/" class="md-raised md-primary">Voltar</md-button>
+          </section>
+    </form>
+</md-content>
