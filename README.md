@@ -1,6 +1,6 @@
-# SimpleCRUD
+# VmbTest
 
-A Simple CRUD application using Mongo, Express, Angular and  Node.js
+A CRUD application using Mongo, Express, Angular and  Node.js
 
 # Running Project
 
