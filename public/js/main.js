@@ -1,20 +1,20 @@
 angular.module('JComerce',['ngRoute', 'ngResource',  'ngMaterial'])
   .config(function($routeProvider) {
 
-    $routeProvider.when('/mercadorias', {
-      templateUrl: 'partials/mercadorias.html',
-      controller: 'MercadoriasController'
+    $routeProvider.when('/users', {
+      templateUrl: 'partials/users.html',
+      controller: 'UsersController'
     });
 
-    $routeProvider.when('/mercadoria/:mercadoriaId', {
-    	templateUrl: 'partials/mercadoria.html',
-    	controller: 'MercadoriaController'
+    $routeProvider.when('/user/:userId', {
+    	templateUrl: 'partials/user.html',
+    	controller: 'UserController'
     });
 
-    $routeProvider.when('/mercadoria',{
-      templateUrl: 'partials/mercadoria.html',
-      controller:'MercadoriaController'
+    $routeProvider.when('/user',{
+      templateUrl: 'partials/user.html',
+      controller:'UserController'
     });
 
-    $routeProvider.otherwise({redirectTo: '/mercadorias'});
+    $routeProvider.otherwise({redirectTo: '/users'});
 });

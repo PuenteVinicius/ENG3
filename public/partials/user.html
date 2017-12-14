@@ -1,0 +1,59 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Cadastre a seu Cliente</h2>
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+      <form name="ClienteForm" ng-submit="salva()">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nome</label>
+            <input id ="name" required ng-model="user.name">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>CPF</label>
+            <input id ="cpf" required ng-model="user.cpf">
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Endereço</label>
+          <input id ="address" required ng-model="user.address">
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <label>Data de Nascimento</label>
+          <input id ="birthDate" required ng-model="user.birthDate">
+        </md-input-container>
+        
+        <md-input-container md-no-float class="md-block">
+          <label>Data de Igresso</label>
+          <input id ="startDate" required ng-model="user.startDate">
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <label>Altura</label>
+          <input id ="height" required ng-model="user.height">
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <label>Objetivo</label>
+          <input id ="target" required ng-model="user.target">
+        </md-input-container>
+
+        <span>Status</span>
+          <md-select ng-model="user.status" placeholder="Status" class="md-no-underline">
+            <md-option value="Ativo">Ativo</md-option>
+            <md-option value="Inativo">Inativo</md-option>
+          </md-select>
+          <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button type="submit" class="md-raised">Salvar</md-button>
+            <md-button href="#/" class="md-raised md-primary">Voltar</md-button>
+          </section>
+          <p ng-show="mensagem.texto">
+            {{mensagem.texto}}
+        </p>
+    </form>
+</md-content>

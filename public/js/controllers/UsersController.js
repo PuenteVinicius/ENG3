@@ -1,10 +1,10 @@
-angular.module('JComerce').controller('MercadoriasController',
+angular.module('JComerce').controller('UsersController',
 
-  function(Mercadoria, $scope) {
+  function(User, $scope) {
 
     $scope.show = false;
 
-    $scope.mercadorias = [];
+    $scope.users = [];
 
     $scope.filtro = '';
 
@@ -12,10 +12,10 @@ angular.module('JComerce').controller('MercadoriasController',
 
     $scope.title = 'My App Title';
 
-    function buscaMercadorias() {
-      Mercadoria.query(
-        function(mercadorias) {
-          $scope.mercadorias = mercadorias;
+    function buscaUsers() {
+      User.query(
+        function(users) {
+          $scope.users = users;
           $scope.mensagem = {};
         },
         function(erro) {
@@ -27,14 +27,14 @@ angular.module('JComerce').controller('MercadoriasController',
       );
     }
 
-    buscaMercadorias();
+    buscaUsers();
 
-    $scope.remove = function(mercadoria) {
-      Mercadoria.delete({id: mercadoria._id},
-        buscaMercadorias,
+    $scope.remove = function(user) {
+      User.delete({id: user._id},
+        buscaUsers,
         function(erro) {
           $scope.mensagem ={
-            texto: 'Não foi possível remover a mercadoria'
+            texto: 'Não foi possível remover a user'
           };
           console.log(erro);
         }

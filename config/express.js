@@ -1,6 +1,7 @@
 var express = require('express');
 var load = require('express-load');
 var bodyParser = require('body-parser');
+const consign =require('consign');
 
 module.exports = function() {
   var app = express();
@@ -15,10 +16,11 @@ module.exports = function() {
   app.use(bodyParser.json());
   app.use(require('method-override')());
 
-  load('models', {cwd: 'app'})
-    .then('controllers')
-    .then('routes')
-    .into(app);
+    consign()
+        .include('app/models')
+        .then('app/controllers')
+        .then('app/routes')
+        .into(app);
 
   return app;
 };

@@ -1,0 +1,31 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Bem vindo ao JComerce</h2>
+  </div>
+</md-toolbar>
+
+<md-content class="full-heigth" layout-padding>
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat="user in users | filter: filtro">
+      <div class="md-list-item-text">
+        <h2>{{user.name}}</h2>
+        <h3>CPF: {{user.cpf}}</h3>
+        <p>Endereço: {{user.address}}</p>
+        <p>Nascimento: {{user.birthDate}}</p>
+        <p>Data de Ingresso: {{user.startDate}}</p>
+        <p>Altura: {{user.height}}</p>
+        <p>Objetivo: {{user.target}}</p>
+        <p>Status: {{user.status}}</p>
+        <br></br>
+      </div>
+      <md-button layout-padding ng-href="#/user/{{user._id}}" class="md-raised">Editar</md-button>
+      <md-button ng-click = "remove(user)" class="md-raised md-warn">Remover</md-button>
+
+      <md-divider layout="row" layout-margin class ="divider"></md-divider>
+    </md-list-item>
+  </md-list>
+  <md-button ng-href="#/user" ng-class="{ visible: selectedTab==0 }"class="md-fab md-fab-bottom-right"  aria-label="upload photo" >
+               +
+  </md-button>
+
+</md-content>
