@@ -1,11 +1,10 @@
 {
-  "name": "VmbTest",
+  "name": "ENG3",
   "version": "1.0.0",
   "description": "Aplicação web que realiza um CRUD",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
-    "postinstall": "bower install"
+    "start": "babel-node index.js"
   },
   "author": "ViniciusPuente",
   "license": "ISC",
