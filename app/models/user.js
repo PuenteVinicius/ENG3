@@ -7,13 +7,13 @@ const user = new Schema({
   },
   cpf: {
     type: String,
+    unique: true
   },  
   address: {
     type: String,
   },
   birthDate: {
     type: String,
-    unique: true
   },
   startDate: {
     type: String,
